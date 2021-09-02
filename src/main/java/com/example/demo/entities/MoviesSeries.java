@@ -1,17 +1,15 @@
 package com.example.demo.entities;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import java.io.Serializable;
+import java.util.Set;
+
+import javax.persistence.*;
+
 
 @Entity
 @Table(name = "pelicula_serie")
-public class MoviesSeries {
+public class MoviesSeries implements Serializable{
 
-	
 	//ENTITY ATRIBUTES
 	@Id //SET ID AS PRIMARY KEY
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,19 +27,43 @@ public class MoviesSeries {
 	@Column(name = "calificacion")
 	private int rate;
 	
-	@Column(name = "id_genero")
-	private int genre_id;
+	//many to many characters/movies
+	@ManyToMany(targetEntity = Characters.class,cascade = CascadeType.MERGE)//TARGET ENTITY IS THE OTHER SIDE OF THE MANYTOMANY
+	@JoinTable(name = "pelicula_serie_character", joinColumns = {
+    	@JoinColumn(name = "id_peliculas_serie", referencedColumnName = "id",nullable = false,updatable = false)},//linking atribute to column in intermetidate table
+    	inverseJoinColumns = {
+    	@JoinColumn(name = "id_character", referencedColumnName = "id",nullable = false, updatable = false)})//linking opposite atribute in this case peliculas vs characters
+	private Set<Characters> characters;
 	
-	@Column(name = "")
+	//many yo many genre/movies
+	@ManyToMany(targetEntity = Genre.class,cascade = CascadeType.MERGE)
+	@JoinTable(name = "genero_peliculas_series", joinColumns = {
+    	@JoinColumn(name = "id_peliculas_series", referencedColumnName = "id",nullable = false,updatable = false)},
+    	inverseJoinColumns = {
+    	@JoinColumn(name = "id_genero", referencedColumnName = "id",nullable = false, updatable = false)})
+	private Set<Genre> genres; //THIS ONE IS FOR MOVIES/CHARACTERS
 	
-	//SETTING GETTERS AND SETTERS
+	
+	
+	
+	//GETTERS AND SETTERS
 
-	public int getGenre_id() {
-		return genre_id;
+	public Set<Characters> getCharacters() {
+		return characters;
 	}
 
-	public void setGenre_id(int genre_id) {
-		this.genre_id = genre_id;
+	public void setCharacters(Set<Characters> characters) {
+		this.characters = characters;
+	}
+
+
+
+	public Set<Genre> getGenres() {
+		return genres;
+	}
+
+	public void setGenres(Set<Genre> genres) {
+		this.genres = genres;
 	}
 
 	public int getId() {

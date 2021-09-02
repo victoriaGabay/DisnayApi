@@ -1,15 +1,13 @@
 package com.example.demo.entities;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import java.io.Serializable;
+import java.util.Set;
+
+import javax.persistence.*;
 
 @Entity
 @Table(name = "genero")
-public class Genre {
+public class Genre implements Serializable{
 
 	@Id //SET ID AS PRIMARY KEY
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,6 +19,13 @@ public class Genre {
 	@Column(name = "imagen")
 	private String imageUrl;
 	
+	
+	@ManyToMany(targetEntity = MoviesSeries.class,cascade = CascadeType.MERGE)
+	@JoinTable(name = "genero_peliculas_series", joinColumns = {
+    	@JoinColumn(name = "id_genero", referencedColumnName = "id",nullable = false,updatable = false)},
+    	inverseJoinColumns = {
+    	@JoinColumn(name = "id_peliculas_series", referencedColumnName = "id",nullable = false, updatable = false)})
+	private Set<MoviesSeries> moviesOrSeries;
 	//SETTING GETTERS AND SETTERS
 
 	public int getId() {
@@ -29,6 +34,15 @@ public class Genre {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+	
+
+	public Set<MoviesSeries> getMoviesOrSeries() {
+		return moviesOrSeries;
+	}
+
+	public void setMoviesOrSeries(Set<MoviesSeries> moviesOrSeries) {
+		this.moviesOrSeries = moviesOrSeries;
 	}
 
 	public String getName() {

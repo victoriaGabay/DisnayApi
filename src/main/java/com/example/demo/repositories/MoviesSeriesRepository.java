@@ -5,4 +5,6 @@ import com.example.demo.entities.MoviesSeries;
 
 public interface MoviesSeriesRepository extends JpaRepository<MoviesSeries,Integer>{
 
+	
+	
 }

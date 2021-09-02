@@ -1,5 +1,6 @@
 package com.example.demo.entities;
 
+import java.util.Date;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -8,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
@@ -26,23 +28,25 @@ public class Characters {
 	@Column(name = "imagen")//SPECIFY COLUMN NAME
 	private String imageUrl;
 	
-	@Column(name = "edad")
-	private int age;
+	@Column(name = "fecha_nacimiento")
+	private Date birth_date;
 	
 	@Column(name = "peso")
 	private float weight;
 	
 	
-	 @ManyToMany(cascade = CascadeType.ALL)
-	 
+	@ManyToMany(targetEntity = MoviesSeries.class,cascade = CascadeType.MERGE)//TARGET ENTITY IS THE OTHER SIDE OF THE MANYTOMANY
+	@JoinTable(name = "pelicula_serie_character", joinColumns = {
+    		@JoinColumn(name = "id_character", referencedColumnName = "id",nullable = false,updatable = false)},
+    		inverseJoinColumns = {
+    				@JoinColumn(name = "id_peliculas_serie", referencedColumnName = "id",nullable = false, updatable = false)})
 	private Set<MoviesSeries> moviesOrSeries;
 	
-	//EMPtY CONSTRUCTOR
 	public Characters() {
 		
 	}
 
-	//SETTING GETTERS AND SETTERS
+	//GETTERS AND SETTERS
 	public int getId() {
 		return id;
 	}
@@ -67,12 +71,22 @@ public class Characters {
 		this.imageUrl = imageUrl;
 	}
 
-	public int getAge() {
-		return age;
+	
+
+	public Date getBirth_date() {
+		return birth_date;
 	}
 
-	public void setAge(int age) {
-		this.age = age;
+	public void setBirth_date(Date birth_date) {
+		this.birth_date = birth_date;
+	}
+
+	public Set<MoviesSeries> getMoviesOrSeries() {
+		return moviesOrSeries;
+	}
+
+	public void setMoviesOrSeries(Set<MoviesSeries> moviesOrSeries) {
+		this.moviesOrSeries = moviesOrSeries;
 	}
 
 	public float getWeight() {

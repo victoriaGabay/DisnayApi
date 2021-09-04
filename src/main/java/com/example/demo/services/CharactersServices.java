@@ -1,14 +1,16 @@
 package com.example.demo.services;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
-
+import java.util.Set;
+import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
+import com.example.demo.DTO.CharactersDTO;
+import com.example.demo.DTO.CharactersDescriptionDTO;
 import com.example.demo.entities.Characters;
 import com.example.demo.repositories.CharactersRepository;
-
 
 @Service
 public class CharactersServices {
@@ -21,14 +23,39 @@ public class CharactersServices {
 	}
 
 	
-	public List<Characters> getCharacterList(){
-		return charactersRepo.findAll();
+	public List<CharactersDTO> getCharacterList(){
+		return charactersRepo.findAll().stream().map(this::convertCharacterToDto).collect(Collectors.toList());
 	}
 	
+	public CharactersDTO convertCharacterToDto(Characters character) {
+		CharactersDTO cDTO = new CharactersDTO();
+		cDTO.setName(character.getName());
+		cDTO.setImageUrl(character.getImageUrl());
+		return cDTO;
+	}
+	
+	public Set<CharactersDescriptionDTO> getCharacterById(int id) {
+		return charactersRepo.findById(id).stream().map(this::convertCharacterDescriptionToDto).collect(Collectors.toSet());
+	}
+	public Set<CharactersDescriptionDTO> getCharacterByName(String name) {
+		return charactersRepo.findByName(name).stream().map(this::convertCharacterDescriptionToDto).collect(Collectors.toSet());
+	}
+	
+/*	public List<CharactersDescriptionDTO> getCharacterByBirthDate(Date date){
+		return charactersRepo.findBybirth_date(date).stream().map(this::convertCharacterDescriptionToDto).collect(Collectors.toList());
+	}*/
+
 
 	
-	public Characters getCharacterById(int id) {
-		return charactersRepo.getById(id);
+	
+	public CharactersDescriptionDTO convertCharacterDescriptionToDto(Characters charac) {
+		CharactersDescriptionDTO charDTO = new CharactersDescriptionDTO();
+		charDTO.setBirth_date(charac.getBirth_date());
+		charDTO.setImageUrl(charac.getImageUrl());
+		charDTO.setMoviesOrSeries(charac.getMoviesOrSeries());
+		charDTO.setName(charac.getName());
+		charDTO.setWeight(charac.getWeight());
+		return charDTO;
 	}
 	
 	public Characters updateCharacterById(Characters character) {

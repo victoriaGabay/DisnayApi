@@ -5,9 +5,14 @@ import java.util.Set;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 
 @Entity
 @Table(name = "pelicula_serie")
+
 public class MoviesSeries implements Serializable{
 
 	//ENTITY ATRIBUTES
@@ -21,13 +26,14 @@ public class MoviesSeries implements Serializable{
 	@Column(name = "imagen")
 	private String imageUrl;
 	
-	@Column(name = "fecha_creacion")
+	@Column(name = "Fecha_creacion")
 	private String creationDate;
 	
 	@Column(name = "calificacion")
 	private int rate;
 	
 	//many to many characters/movies
+	@JsonIgnore
 	@ManyToMany(targetEntity = Characters.class,cascade = CascadeType.MERGE)//TARGET ENTITY IS THE OTHER SIDE OF THE MANYTOMANY
 	@JoinTable(name = "pelicula_serie_character", joinColumns = {
     	@JoinColumn(name = "id_peliculas_serie", referencedColumnName = "id",nullable = false,updatable = false)},//linking atribute to column in intermetidate table
@@ -36,11 +42,12 @@ public class MoviesSeries implements Serializable{
 	private Set<Characters> characters;
 	
 	//many yo many genre/movies
+	@JsonIgnore
 	@ManyToMany(targetEntity = Genre.class,cascade = CascadeType.MERGE)
 	@JoinTable(name = "genero_peliculas_series", joinColumns = {
     	@JoinColumn(name = "id_peliculas_series", referencedColumnName = "id",nullable = false,updatable = false)},
     	inverseJoinColumns = {
-    	@JoinColumn(name = "id_genero", referencedColumnName = "id",nullable = false, updatable = false)})
+    	@JoinColumn(name = "id_genre", referencedColumnName = "id",nullable = false, updatable = false)})
 	private Set<Genre> genres; //THIS ONE IS FOR MOVIES/CHARACTERS
 	
 	

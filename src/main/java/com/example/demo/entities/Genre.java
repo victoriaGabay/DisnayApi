@@ -5,8 +5,13 @@ import java.util.Set;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 @Entity
 @Table(name = "genero")
+
 public class Genre implements Serializable{
 
 	@Id //SET ID AS PRIMARY KEY
@@ -19,10 +24,10 @@ public class Genre implements Serializable{
 	@Column(name = "imagen")
 	private String imageUrl;
 	
-	
+	@JsonIgnore
 	@ManyToMany(targetEntity = MoviesSeries.class,cascade = CascadeType.MERGE)
 	@JoinTable(name = "genero_peliculas_series", joinColumns = {
-    	@JoinColumn(name = "id_genero", referencedColumnName = "id",nullable = false,updatable = false)},
+    	@JoinColumn(name = "id_genre", referencedColumnName = "id",nullable = false,updatable = false)},
     	inverseJoinColumns = {
     	@JoinColumn(name = "id_peliculas_series", referencedColumnName = "id",nullable = false, updatable = false)})
 	private Set<MoviesSeries> moviesOrSeries;

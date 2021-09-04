@@ -1,6 +1,9 @@
 package com.example.demo.entities;
 
 import java.util.Date;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -16,6 +19,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "characters")
+
 public class Characters {
 
 	@Id //SET ID AS PRIMARY KEY
@@ -34,7 +38,7 @@ public class Characters {
 	@Column(name = "peso")
 	private float weight;
 	
-	
+	@JsonIgnore //TO AVOID INFINITES QUERYS
 	@ManyToMany(targetEntity = MoviesSeries.class,cascade = CascadeType.MERGE)//TARGET ENTITY IS THE OTHER SIDE OF THE MANYTOMANY
 	@JoinTable(name = "pelicula_serie_character", joinColumns = {
     		@JoinColumn(name = "id_character", referencedColumnName = "id",nullable = false,updatable = false)},
@@ -44,6 +48,13 @@ public class Characters {
 	
 	public Characters() {
 		
+	}
+	public Characters(String imageUrl, String name, Date bd, float w,Set<MoviesSeries> ms) {
+		this.birth_date=bd;
+		this.imageUrl= imageUrl;
+		this.name = name;
+		this.weight = w;
+		this.moviesOrSeries = ms;
 	}
 
 	//GETTERS AND SETTERS

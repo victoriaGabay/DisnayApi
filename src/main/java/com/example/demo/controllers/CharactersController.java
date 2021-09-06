@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import com.example.demo.DTO.CharactersDTO;
 import com.example.demo.DTO.CharactersDescriptionDTO;
+import com.example.demo.DTO.CharactersPerMovieDTO;
 import com.example.demo.entities.Characters;
 import com.example.demo.services.CharactersServices;
 
@@ -35,6 +36,14 @@ public class CharactersController {
 		return ResponseEntity.ok().body(this.cServ.getCharacterByName(name));
 	}
 	
+	@GetMapping("/movies={idMovies}")
+	public ResponseEntity<Set<CharactersPerMovieDTO>> getCharactersByMovieOrSerieId(@PathVariable int idMovies){
+		return ResponseEntity.ok().body(cServ.getCharactersByMovieOrSerieId(idMovies));
+	}
+	@GetMapping("/age={age}")
+	public ResponseEntity<List<CharactersDescriptionDTO>> getCharactersByAge(@PathVariable int age){
+		return ResponseEntity.ok().body(this.cServ.getCharactersByAge(age));
+	}
 	
 	
     @PutMapping("update")

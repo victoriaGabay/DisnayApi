@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.DTO.GenreDTO;
 import com.example.demo.DTO.MoviesSeriesDTO;
 import com.example.demo.DTO.MoviesSeriesDesriptionDTO;
 import com.example.demo.entities.Characters;
@@ -29,7 +30,7 @@ public class MoviesSeriesController {
 	private MoviesSeriesServices mysServ;
 
     @PostMapping
-	public ResponseEntity<MoviesSeries> addCharacter(@RequestBody MoviesSeries mys){
+	public ResponseEntity<MoviesSeries> createMovie(@RequestBody MoviesSeries mys){
 		return ResponseEntity.ok(mysServ.createMovie(mys));
 	}
     
@@ -39,9 +40,25 @@ public class MoviesSeriesController {
 	}
     
     @GetMapping("/{id}")
-	public ResponseEntity<Set<MoviesSeriesDesriptionDTO>> getCharacterById(@PathVariable int id){
+	public ResponseEntity<Set<MoviesSeriesDesriptionDTO>> getMovieSerieById(@PathVariable int id){
         return ResponseEntity.ok().body(this.mysServ.getMovieSerieById(id));
 	}
+    
+    @GetMapping("/name={name}")
+	public ResponseEntity<Set<MoviesSeriesDesriptionDTO>> getgetMovieSerieByName(@PathVariable String name){
+        return ResponseEntity.ok().body(this.mysServ.getMovieSerieByTitle(name));
+	}
+    
+    @GetMapping("/order={order}")
+	public ResponseEntity<List<MoviesSeriesDesriptionDTO>> getMoviesSeriesByOrder(@PathVariable String order){
+        return ResponseEntity.ok().body(this.mysServ.getMovieSerieByCreationDate(order));
+	}
+    
+    @GetMapping("/genre={idGenre}")
+	public ResponseEntity<Set<GenreDTO>> getMoviesSeriesByOrder(@PathVariable int idGenre){
+        return ResponseEntity.ok().body(this.mysServ.getMoviesByGenreId(idGenre));
+	}
+    
     
     
     @PutMapping

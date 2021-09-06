@@ -1,6 +1,5 @@
 package com.example.demo.services;
 
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
@@ -9,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.example.demo.DTO.CharactersDTO;
 import com.example.demo.DTO.CharactersDescriptionDTO;
+import com.example.demo.DTO.CharactersPerMovieDTO;
 import com.example.demo.entities.Characters;
 import com.example.demo.repositories.CharactersRepository;
 
@@ -17,6 +17,8 @@ public class CharactersServices {
 
 	@Autowired
 	private CharactersRepository charactersRepo;
+	@Autowired
+	private MoviesSeriesServices mysServ;
 
 	public Characters createCharacter(Characters character) {
 		return charactersRepo.save(character);
@@ -41,16 +43,19 @@ public class CharactersServices {
 		return charactersRepo.findByName(name).stream().map(this::convertCharacterDescriptionToDto).collect(Collectors.toSet());
 	}
 	
-/*	public List<CharactersDescriptionDTO> getCharacterByBirthDate(Date date){
-		return charactersRepo.findBybirth_date(date).stream().map(this::convertCharacterDescriptionToDto).collect(Collectors.toList());
-	}*/
-
+	public Set<CharactersPerMovieDTO> getCharactersByMovieOrSerieId(int id) {
+		return mysServ.getCharactersPerMovieId(id);
+	}
+	
+	public List<CharactersDescriptionDTO> getCharactersByAge(int age){
+		return charactersRepo.findByAge(age).stream().map(this::convertCharacterDescriptionToDto).collect(Collectors.toList());
+	}
 
 	
 	
 	public CharactersDescriptionDTO convertCharacterDescriptionToDto(Characters charac) {
 		CharactersDescriptionDTO charDTO = new CharactersDescriptionDTO();
-		charDTO.setBirth_date(charac.getBirth_date());
+		charDTO.setAge(charac.getAge());
 		charDTO.setImageUrl(charac.getImageUrl());
 		charDTO.setMoviesOrSeries(charac.getMoviesOrSeries());
 		charDTO.setName(charac.getName());
@@ -64,7 +69,7 @@ public class CharactersServices {
         if(characterFound.isPresent()) {
         	Characters characterUpdate = characterFound.get();
         	characterUpdate.setImageUrl(character.getImageUrl());
-        	characterUpdate.setBirth_date(character.getBirth_date());
+        	characterUpdate.setAge(character.getAge());
         	characterUpdate.setName(character.getName());
         	characterUpdate.setWeight(character.getWeight());;
         	return charactersRepo.save(character);

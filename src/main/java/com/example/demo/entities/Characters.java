@@ -32,8 +32,8 @@ public class Characters {
 	@Column(name = "imagen")//SPECIFY COLUMN NAME
 	private String imageUrl;
 	
-	@Column(name = "fecha_nacimiento")
-	private Date birth_date;
+	@Column(name = "edad")
+	private int age;
 	
 	@Column(name = "peso")
 	private float weight;
@@ -49,8 +49,9 @@ public class Characters {
 	public Characters() {
 		
 	}
-	public Characters(String imageUrl, String name, Date bd, float w,Set<MoviesSeries> ms) {
-		this.birth_date=bd;
+
+	public Characters(String imageUrl, String name, int edad, float w,Set<MoviesSeries> ms) {
+		this.age=edad;
 		this.imageUrl= imageUrl;
 		this.name = name;
 		this.weight = w;
@@ -84,12 +85,13 @@ public class Characters {
 
 	
 
-	public Date getBirth_date() {
-		return birth_date;
+
+	public int getAge() {
+		return age;
 	}
 
-	public void setBirth_date(Date birth_date) {
-		this.birth_date = birth_date;
+	public void setAge(int age) {
+		this.age = age;
 	}
 
 	public Set<MoviesSeries> getMoviesOrSeries() {

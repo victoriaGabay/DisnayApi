@@ -61,7 +61,7 @@ public class MoviesSeriesController {
     
     
     
-    @PutMapping
+    @PutMapping()
     public ResponseEntity<MoviesSeries> updateMoviesSeriesById(@RequestBody MoviesSeries mys){
     	return ResponseEntity.ok().body(this.mysServ.updateMoviesSeriesById(mys));	
     }

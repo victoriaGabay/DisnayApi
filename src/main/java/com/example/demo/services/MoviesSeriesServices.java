@@ -86,11 +86,15 @@ public class MoviesSeriesServices {
         
         if(mysFound.isPresent()) { //SAVING UPDATES, GENRE MISSING 
         	MoviesSeries mysUpdate = mysFound.get();
-        	mysUpdate.setImageUrl(mys.getImageUrl());
-        	mysUpdate.setCreationDate(mys.getCreationDate());
-        	mysUpdate.setRate(mys.getRate());
-        	mysUpdate.setTitle(mys.getTitle());
-        	return mysRepo.save(mys);
+        	if(mys.getImageUrl() != null) {
+        		mysUpdate.setImageUrl(mys.getImageUrl());}
+        	if(mys.getCreationDate() != null) {
+        		mysUpdate.setCreationDate(mys.getCreationDate());}
+        	if(mys.getRate() != 0) {
+        		mysUpdate.setRate(mys.getRate());}
+        	if(mys.getTitle() != null) {
+        		mysUpdate.setTitle(mys.getTitle());}
+        	return mysRepo.save(mysUpdate);
         }
         else {
         	return null;

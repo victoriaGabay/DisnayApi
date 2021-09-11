@@ -46,7 +46,7 @@ public class CharactersController {
 	}
 	
 	
-    @PutMapping("update")
+    @PutMapping()
     public ResponseEntity<Characters> updateCharacters(@RequestBody Characters charac){
     	return ResponseEntity.ok().body(this.cServ.updateCharacterById(charac));	
     }

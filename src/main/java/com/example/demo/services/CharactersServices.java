@@ -68,17 +68,23 @@ public class CharactersServices {
         
         if(characterFound.isPresent()) {
         	Characters characterUpdate = characterFound.get();
-        	characterUpdate.setImageUrl(character.getImageUrl());
-        	characterUpdate.setAge(character.getAge());
-        	characterUpdate.setName(character.getName());
-        	characterUpdate.setWeight(character.getWeight());;
-        	return charactersRepo.save(character);
+        	if(character.getImageUrl() != null) {
+        		characterUpdate.setImageUrl(character.getImageUrl());}
+        	if(character.getAge()  != 0) {
+        		characterUpdate.setAge(character.getAge());}
+        	if(character.getName() != null) {
+        		characterUpdate.setName(character.getName());}
+        	if(character.getWeight() != 0.0) {
+        		characterUpdate.setWeight(character.getWeight());}
+        	return charactersRepo.save(characterUpdate);
         }
         else {
         	return null;
         }
 
 	}
+	
+	
 	
 	public String deleteCharacterById(int id) {
 		charactersRepo.deleteById(id);

@@ -60,6 +60,7 @@ public class CharactersServices {
 		charDTO.setMoviesOrSeries(charac.getMoviesOrSeries());
 		charDTO.setName(charac.getName());
 		charDTO.setWeight(charac.getWeight());
+		charDTO.setHistory(charac.getHistory());
 		return charDTO;
 	}
 	
@@ -76,6 +77,9 @@ public class CharactersServices {
         		characterUpdate.setName(character.getName());}
         	if(character.getWeight() != 0.0) {
         		characterUpdate.setWeight(character.getWeight());}
+        	if(character.getHistory() != null) {
+        		characterUpdate.setHistory(character.getHistory());
+        	}
         	return charactersRepo.save(characterUpdate);
         }
         else {

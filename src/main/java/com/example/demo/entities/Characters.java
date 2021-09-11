@@ -38,6 +38,9 @@ public class Characters {
 	@Column(name = "peso")
 	private float weight;
 	
+	@Column(name = "historia")
+	private String history;
+	
 	@JsonIgnore //TO AVOID INFINITES QUERYS
 	@ManyToMany(targetEntity = MoviesSeries.class,cascade = CascadeType.MERGE)//TARGET ENTITY IS THE OTHER SIDE OF THE MANYTOMANY
 	@JoinTable(name = "pelicula_serie_character", joinColumns = {
@@ -50,12 +53,13 @@ public class Characters {
 		
 	}
 
-	public Characters(String imageUrl, String name, int edad, float w,Set<MoviesSeries> ms) {
+	public Characters(String imageUrl, String name, int edad, float w,Set<MoviesSeries> ms,String historia) {
 		this.age=edad;
 		this.imageUrl= imageUrl;
 		this.name = name;
 		this.weight = w;
 		this.moviesOrSeries = ms;
+		this.history = historia;
 	}
 
 	//GETTERS AND SETTERS
@@ -108,6 +112,14 @@ public class Characters {
 
 	public void setWeight(float weight) {
 		this.weight = weight;
+	}
+
+	public String getHistory() {
+		return history;
+	}
+
+	public void setHistory(String history) {
+		this.history = history;
 	}
 
 	

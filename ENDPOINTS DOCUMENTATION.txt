@@ -1,0 +1,141 @@
+/apiDisney
+
+USERS:
+	/auth/login ---> to log in and get an authentication token
+	-example
+	POST http://localhost:8080/auth/login
+		{
+			"userName": "kiki.gabay23@gmail.com",
+			"password": "prueba123"
+		}
+		returns token 
+	/auth/register ---> to add a new user
+	--Example
+	POST http://localhost:8080/auth/register
+		{
+			"userName": "prueba123@gmail.com",
+			"password": "otraprueba123"
+		}
+
+CHARACTERS:
+	/characters --> to get all the characters (token is needed)
+	--example
+	GET	 http://localhost:8080/apiDisney/characters with bearer token 
+		Authorization- bearer token -enter the token returned by login method
+	RETURNS list of characters 
+	
+	/characters/{id} --> find character by id
+	--example
+	GET http://localhost:8080/apiDisney/characters/5
+			Authorization- bearer token -enter the token returned by login method
+	RETURNS one character
+	
+	/characters/name={name} --> to get character by name
+		Authorization- bearer token -enter the token returned by login method
+	--example
+	GET http://localhost:8080/apiDisney/characters/name=Mulan
+		Authorization- bearer token -enter the token returned by login method
+	RETURNS only one character
+	
+	/characters/age={age} --> finds all the characters with the age given
+	--example
+	GET http://localhost:8080/apiDisney/characters/age=20
+		Authorization- bearer token -enter the token returned by login method
+	RETURNS one or more characters
+	
+	/characters/movies={idMovie} --> finds characters by movie (id)
+	--example
+	GET http://localhost:8080/apiDisney/characters/movies=1
+		Authorization- bearer token -enter the token returned by login method
+	RETURNS one or more characters
+
+	/characters --> update one or more fields of a character. ID FIELD IS NEEDED IN JSON 
+	--example
+	PUT http://localhost:8080/apiDisney/characters
+		Authorization- bearer token -enter the token returned by login method
+		{
+			"id": 5,
+			"age": 18,
+			"imageUrl": "https://static.wikia.nocookie.net/disney/images/8/83/FaMul%C3%A1n.png/revision/latest/top-crop/width/360/height/450?cb=20130830100817&path-prefix=es" 
+		}
+	IN this case we update age and imageUrl fields. 
+	
+	/characters/{id} --> delete character by id.
+	--example
+	DELETE http://localhost:8080/apiDisney/characters/5
+		Authorization- bearer token -enter the token returned by login method
+	RETURNS HTTP STATUS OK
+	
+	/characters --> add a character, no id neeeded
+	--example
+	POST http://localhost:8080/apiDisney/characters
+		Authorization- bearer token -enter the token returned by login method
+	{
+		"name": "Jazmin"
+		"imageUrl": "https://i.pinimg.com/474x/9e/94/5a/9e945af424e13ba7d40e2b4811bef690.jpg"
+		"age": 20,
+		"weight": 40.5,
+		"history": "Jazmin is Aladin's wife"
+		"MoviesOrSeries":[{"id": 9}] //you can add more than one id like this [{"id": 9},{"id": 2}]
+	}
+
+MOVIES OR SERIES
+	/moviesSeries --> to get all the moivies or series (token is needed)
+	--example
+	GET	 http://localhost:8080/apiDisney/moviesSeries with bearer token 
+		Authorization- bearer token -enter the token returned by login method
+	RETURNS list of movies or series 
+	
+	/moviesSeries/{id} --> find movies or series by id
+	--example
+	GET http://localhost:8080/apiDisney/moviesSeries/1
+			Authorization- bearer token -enter the token returned by login method
+	RETURNS one movie or serie
+	
+	/moviesSeries/name={name} --> to get movie or serie by name
+		Authorization- bearer token -enter the token returned by login method
+	--example
+	GET http://localhost:8080/apiDisney/moviesSeries/name=MulanUno
+		Authorization- bearer token -enter the token returned by login method
+	RETURNS only one movie or serie
+	
+	/moviesSeries/genre={idGenre} --> finds all the movies that belong to that genre
+	--example
+	GET http://localhost:8080/apiDisney/moviesSeries/1
+		Authorization- bearer token -enter the token returned by login method
+	RETURNS one or more moviesseries
+	
+	/characters/order={order} --> lists movies or series by creationDate (ASC or DESC)
+	--example
+	GET http://localhost:8080/apiDisney/moviesSeries/order=ASC
+		Authorization- bearer token -enter the token returned by login method
+	RETURNS list of all movies or series older to younger
+	
+	/moviesSeries --> update one or more fields of a movies or serie. ID FIELD IS NEEDED IN JSON 
+	--example
+	PUT http://localhost:8080/apiDisney/moviesSeries
+		Authorization- bearer token -enter the token returned by login method
+		{
+			"id": 2,
+			"imageUrl": "https://es.web.img2.acsta.net/pictures/14/02/24/11/43/446784.jpg"
+		}
+	IN this case we update  imageUrl fields. 
+	
+	/moviesSeries/{id} --> delete moviesSeries by id.
+	--example
+	DELETE http://localhost:8080/apiDisney/moviesSeries/1
+		Authorization- bearer token -enter the token returned by login method
+	RETURNS HTTP STATUS OK
+
+	/moviesSeries -->  add a movie or serie, no id neeeded
+	--example
+	POST http://localhost:8080/apiDisney/moviesSeries
+		Authorization- bearer token -enter the token returned by login method
+	{
+		"title": "101 dalmatas"
+		"imageUrl": "https://www.eluniverso.com/resizer/rNtI86cFrO6yW7ctWpgwTeJ9mSQ=/456x336/smart/filters:quality(70)/cloudfront-us-east-1.images.arcpublishing.com/eluniverso/46RDSJIRFRFFPDALDIAR4IGTSQ.jpg"
+		"creationDate": 1961-01-25, //yyyy-mm-dd or year-month-day
+		"rate": 5,
+		"characters": [{"id":3},{"id":4}] //supposing we have charactrs with id 3 and 4 being Pongo and Cruella
+		"genres": [{"id":4},{"id":5}] // imagine genreId = 4 is aventura and genreId = 5 is comedia 
+	}

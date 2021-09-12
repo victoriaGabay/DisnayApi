@@ -1,0 +1,49 @@
+<?xml version="1.0" ?>
+<!DOCTYPE genero_peliculas_series [
+  <!ELEMENT genero_peliculas_series (DATA_RECORD*)>
+  <!ELEMENT DATA_RECORD (id_peliculas_series?,id_genre?)+>
+  <!ELEMENT id_peliculas_series (#PCDATA)>
+  <!ELEMENT id_genre (#PCDATA)>
+]>
+<genero_peliculas_series>
+  <DATA_RECORD>
+    <id_peliculas_series>2</id_peliculas_series>
+    <id_genre>1</id_genre>
+  </DATA_RECORD>
+  <DATA_RECORD>
+    <id_peliculas_series>4</id_peliculas_series>
+    <id_genre>1</id_genre>
+  </DATA_RECORD>
+  <DATA_RECORD>
+    <id_peliculas_series>5</id_peliculas_series>
+    <id_genre>1</id_genre>
+  </DATA_RECORD>
+  <DATA_RECORD>
+    <id_peliculas_series>2</id_peliculas_series>
+    <id_genre>2</id_genre>
+  </DATA_RECORD>
+  <DATA_RECORD>
+    <id_peliculas_series>4</id_peliculas_series>
+    <id_genre>2</id_genre>
+  </DATA_RECORD>
+  <DATA_RECORD>
+    <id_peliculas_series>5</id_peliculas_series>
+    <id_genre>2</id_genre>
+  </DATA_RECORD>
+  <DATA_RECORD>
+    <id_peliculas_series>1</id_peliculas_series>
+    <id_genre>3</id_genre>
+  </DATA_RECORD>
+  <DATA_RECORD>
+    <id_peliculas_series>3</id_peliculas_series>
+    <id_genre>3</id_genre>
+  </DATA_RECORD>
+  <DATA_RECORD>
+    <id_peliculas_series>3</id_peliculas_series>
+    <id_genre>4</id_genre>
+  </DATA_RECORD>
+  <DATA_RECORD>
+    <id_peliculas_series>1</id_peliculas_series>
+    <id_genre>5</id_genre>
+  </DATA_RECORD>
+</genero_peliculas_series>

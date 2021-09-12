@@ -1,0 +1,69 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pelicula_serie_character [
+  <!ELEMENT pelicula_serie_character (DATA_RECORD*)>
+  <!ELEMENT DATA_RECORD (id_character?,id_peliculas_serie?)+>
+  <!ELEMENT id_character (#PCDATA)>
+  <!ELEMENT id_peliculas_serie (#PCDATA)>
+]>
+<pelicula_serie_character>
+  <DATA_RECORD>
+    <id_character>1</id_character>
+    <id_peliculas_serie>1</id_peliculas_serie>
+  </DATA_RECORD>
+  <DATA_RECORD>
+    <id_character>2</id_character>
+    <id_peliculas_serie>1</id_peliculas_serie>
+  </DATA_RECORD>
+  <DATA_RECORD>
+    <id_character>3</id_character>
+    <id_peliculas_serie>1</id_peliculas_serie>
+  </DATA_RECORD>
+  <DATA_RECORD>
+    <id_character>10</id_character>
+    <id_peliculas_serie>2</id_peliculas_serie>
+  </DATA_RECORD>
+  <DATA_RECORD>
+    <id_character>11</id_character>
+    <id_peliculas_serie>2</id_peliculas_serie>
+  </DATA_RECORD>
+  <DATA_RECORD>
+    <id_character>12</id_character>
+    <id_peliculas_serie>2</id_peliculas_serie>
+  </DATA_RECORD>
+  <DATA_RECORD>
+    <id_character>4</id_character>
+    <id_peliculas_serie>3</id_peliculas_serie>
+  </DATA_RECORD>
+  <DATA_RECORD>
+    <id_character>5</id_character>
+    <id_peliculas_serie>3</id_peliculas_serie>
+  </DATA_RECORD>
+  <DATA_RECORD>
+    <id_character>6</id_character>
+    <id_peliculas_serie>3</id_peliculas_serie>
+  </DATA_RECORD>
+  <DATA_RECORD>
+    <id_character>7</id_character>
+    <id_peliculas_serie>4</id_peliculas_serie>
+  </DATA_RECORD>
+  <DATA_RECORD>
+    <id_character>8</id_character>
+    <id_peliculas_serie>4</id_peliculas_serie>
+  </DATA_RECORD>
+  <DATA_RECORD>
+    <id_character>9</id_character>
+    <id_peliculas_serie>4</id_peliculas_serie>
+  </DATA_RECORD>
+  <DATA_RECORD>
+    <id_character>7</id_character>
+    <id_peliculas_serie>5</id_peliculas_serie>
+  </DATA_RECORD>
+  <DATA_RECORD>
+    <id_character>8</id_character>
+    <id_peliculas_serie>5</id_peliculas_serie>
+  </DATA_RECORD>
+  <DATA_RECORD>
+    <id_character>9</id_character>
+    <id_peliculas_serie>5</id_peliculas_serie>
+  </DATA_RECORD>
+</pelicula_serie_character>

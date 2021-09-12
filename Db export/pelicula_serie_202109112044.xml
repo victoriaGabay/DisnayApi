@@ -1,0 +1,47 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pelicula_serie [
+  <!ELEMENT pelicula_serie (DATA_RECORD*)>
+  <!ELEMENT DATA_RECORD (id?,Imagen?,Titulo?,Fecha_creacion?,Calificacion?)+>
+  <!ELEMENT id (#PCDATA)>
+  <!ELEMENT Imagen (#PCDATA)>
+  <!ELEMENT Titulo (#PCDATA)>
+  <!ELEMENT Fecha_creacion (#PCDATA)>
+  <!ELEMENT Calificacion (#PCDATA)>
+]>
+<pelicula_serie>
+  <DATA_RECORD>
+    <id>1</id>
+    <Imagen>https://static.wikia.nocookie.net/disney/images/c/cb/Mulan_ver1_xlg.jpg/revision/latest/scale-to-width-down/336?cb=20160923003413&amp;path-prefix=es</Imagen>
+    <Titulo>Mulan Uno</Titulo>
+    <Fecha_creacion>1998-06-19</Fecha_creacion>
+    <Calificacion>4</Calificacion>
+  </DATA_RECORD>
+  <DATA_RECORD>
+    <id>2</id>
+    <Imagen>https://lumiere-a.akamaihd.net/v1/images/p_thelionking_19752_1_0b9de87b.jpeg</Imagen>
+    <Titulo>El Rey Leon</Titulo>
+    <Fecha_creacion>1994-07-07</Fecha_creacion>
+    <Calificacion>5</Calificacion>
+  </DATA_RECORD>
+  <DATA_RECORD>
+    <id>3</id>
+    <Imagen>https://static.wikia.nocookie.net/disney/images/4/4d/Maleficent_poster.png/revision/latest?cb=20140514145417&amp;path-prefix=es</Imagen>
+    <Titulo>Malefica</Titulo>
+    <Fecha_creacion>2014-05-29</Fecha_creacion>
+    <Calificacion>5</Calificacion>
+  </DATA_RECORD>
+  <DATA_RECORD>
+    <id>4</id>
+    <Imagen>https://pics.filmaffinity.com/Frozen_El_reino_del_hielo-680009505-large.jpg</Imagen>
+    <Titulo>Frozen </Titulo>
+    <Fecha_creacion>2013-01-02</Fecha_creacion>
+    <Calificacion>3</Calificacion>
+  </DATA_RECORD>
+  <DATA_RECORD>
+    <id>5</id>
+    <Imagen>https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQ_vwpDpkQvyucANZft_31wDdRTGP07ulJscwaqcI-nOCafM5eV</Imagen>
+    <Titulo>Frozen 2</Titulo>
+    <Fecha_creacion>2019-12-05</Fecha_creacion>
+    <Calificacion>4</Calificacion>
+  </DATA_RECORD>
+</pelicula_serie>

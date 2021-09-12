@@ -1,0 +1,35 @@
+<?xml version="1.0" ?>
+<!DOCTYPE genero [
+  <!ELEMENT genero (DATA_RECORD*)>
+  <!ELEMENT DATA_RECORD (id?,Nombre?,Imagen?)+>
+  <!ELEMENT id (#PCDATA)>
+  <!ELEMENT Nombre (#PCDATA)>
+  <!ELEMENT Imagen (#PCDATA)>
+]>
+<genero>
+  <DATA_RECORD>
+    <id>1</id>
+    <Nombre>Infantil</Nombre>
+    <Imagen>https://sites.google.com/site/macarenayanezfuentes94/_/rsrc/1467140764245/news/genero-dramatico/iz130004.jpg</Imagen>
+  </DATA_RECORD>
+  <DATA_RECORD>
+    <id>2</id>
+    <Nombre>Musical</Nombre>
+    <Imagen>https://i0.wp.com/cms.babbel.news/wp-content/uploads/2018/12/canzoni-sbagliate-errori-grammaticali_header.jpg</Imagen>
+  </DATA_RECORD>
+  <DATA_RECORD>
+    <id>3</id>
+    <Nombre>Fantasia</Nombre>
+    <Imagen>https://assets.tvu.cl/2019/05/literatura-fantastica-libros-recomendacion.jpg</Imagen>
+  </DATA_RECORD>
+  <DATA_RECORD>
+    <id>4</id>
+    <Nombre>Aventura</Nombre>
+    <Imagen>https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/styles/480x272/public/media/image/2017/09/20-mejores-peliculas-aventura-historia_17.jpg?itok=6b9Td-y9</Imagen>
+  </DATA_RECORD>
+  <DATA_RECORD>
+    <id>5</id>
+    <Nombre>Accion</Nombre>
+    <Imagen>https://64.media.tumblr.com/c3d31cc9ab7f3d49673e69fd7f51991a/tumblr_nbysy5WNQq1rm2vrro1_1280.jpg</Imagen>
+  </DATA_RECORD>
+</genero>

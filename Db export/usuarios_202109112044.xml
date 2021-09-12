@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<!DOCTYPE usuarios [
+  <!ELEMENT usuarios (DATA_RECORD*)>
+  <!ELEMENT DATA_RECORD (id?,user_name?,password?)+>
+  <!ELEMENT id (#PCDATA)>
+  <!ELEMENT user_name (#PCDATA)>
+  <!ELEMENT password (#PCDATA)>
+]>
+<usuarios>
+  <DATA_RECORD>
+    <id>2</id>
+    <user_name>kiki.gabay23@gmail.com</user_name>
+    <password>prueba123</password>
+  </DATA_RECORD>
+</usuarios>

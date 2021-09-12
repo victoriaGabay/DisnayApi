@@ -1,0 +1,109 @@
+<?xml version="1.0" ?>
+<!DOCTYPE characters [
+  <!ELEMENT characters (DATA_RECORD*)>
+  <!ELEMENT DATA_RECORD (id?,Imagen?,Nombre?,edad?,Peso?,historia?)+>
+  <!ELEMENT id (#PCDATA)>
+  <!ELEMENT Imagen (#PCDATA)>
+  <!ELEMENT Nombre (#PCDATA)>
+  <!ELEMENT edad (#PCDATA)>
+  <!ELEMENT Peso (#PCDATA)>
+  <!ELEMENT historia (#PCDATA)>
+]>
+<characters>
+  <DATA_RECORD>
+    <id>1</id>
+    <Imagen>https://static.wikia.nocookie.net/disney/images/8/83/FaMul%C3%A1n.png/revision/latest/top-crop/width/360/height/450?cb=20130830100817&amp;path-prefix=es</Imagen>
+    <Nombre>Mulan</Nombre>
+    <edad>16</edad>
+    <Peso>48</Peso>
+    <historia>Mulan salvo china</historia>
+  </DATA_RECORD>
+  <DATA_RECORD>
+    <id>2</id>
+    <Imagen>https://static.wikia.nocookie.net/disney/images/8/83/FaMul%C3%A1n.png/revision/latest/top-crop/width/360/height/450?cb=20130830100817&amp;path-prefix=es</Imagen>
+    <Nombre>Mushu</Nombre>
+    <edad>10</edad>
+    <Peso>3</Peso>
+    <historia>Mushu es el fiel compañero de Mulan a lo largo de ambos filmes, ejerciendo de su guardián y protector. </historia>
+  </DATA_RECORD>
+  <DATA_RECORD>
+    <id>3</id>
+    <Imagen>https://hips.hearstapps.com/es.h-cdn.co/fotoes/images/peliculas-para-ninos-cine-infantil/mulan-disney-villana-gong-li/137985497-1-esl-ES/Mulan-El-remake-en-accion-real-de-Disney-introduce-un-villano-distinto-al-original.jpg?crop=1xw:0.5xh;center,top&amp;resize=1200:*</Imagen>
+    <Nombre>Shan Yu</Nombre>
+    <edad>40</edad>
+    <Peso>70</Peso>
+    <historia>Es el villano de la pelicula</historia>
+  </DATA_RECORD>
+  <DATA_RECORD>
+    <id>4</id>
+    <Imagen>https://www.topia.com.ar/sites/default/files/styles/nota_cuerpo__620_/public/13610316585_2f9db61699_k.jpg?itok=Oeo09BJ7</Imagen>
+    <Nombre>Malefica</Nombre>
+    <edad>25</edad>
+    <Peso>60</Peso>
+    <historia>Es una hada a la que le cortan las alas y pierde la fe en la humanidad</historia>
+  </DATA_RECORD>
+  <DATA_RECORD>
+    <id>5</id>
+    <Imagen>https://wooowdotblog.files.wordpress.com/2019/10/malefica6.jpg?w=660</Imagen>
+    <Nombre>Diaval</Nombre>
+    <edad>20</edad>
+    <Peso>65</Peso>
+    <historia>Es un cuervo que Malefica salvo y el se volvio su ayudante. Gracias a Malefica puede cambiar de forma</historia>
+  </DATA_RECORD>
+  <DATA_RECORD>
+    <id>6</id>
+    <Imagen>https://img.ecartelera.com/noticias/57000/57013-m.jpg</Imagen>
+    <Nombre>Aurora</Nombre>
+    <edad>18</edad>
+    <Peso>52</Peso>
+    <historia>Es la hija de Estefano, que Malefica hechizo. La llevan a vivir con las hadas lejos de su familia</historia>
+  </DATA_RECORD>
+  <DATA_RECORD>
+    <id>7</id>
+    <Imagen>https://www.parati.com.ar/wp-content/uploads/2020/02/FROZEN-ELSA-OSCARS-DESTACADA-GENTILEZA-DISNEY.jpg</Imagen>
+    <Nombre>Elsa</Nombre>
+    <edad>24</edad>
+    <Peso>52</Peso>
+    <historia>Tiene podered magicos. Manipula el hielo. </historia>
+  </DATA_RECORD>
+  <DATA_RECORD>
+    <id>8</id>
+    <Imagen>http://images6.fanpop.com/image/photos/43100000/Frozen-2-Anna-Phone-Wallpaper-frozen-43115819-1080-1920.jpg</Imagen>
+    <Nombre>Anna</Nombre>
+    <edad>21</edad>
+    <Peso>51</Peso>
+    <historia>Es la hermana sin poderes de Elsa. Se casa con el primero que ve y no se fija si tiene record penal</historia>
+  </DATA_RECORD>
+  <DATA_RECORD>
+    <id>9</id>
+    <Imagen>https://static.wikia.nocookie.net/frozen/images/9/94/Olaf_transparent.png/revision/latest?cb=20140212182240&amp;path-prefix=es</Imagen>
+    <Nombre>Olaf</Nombre>
+    <edad>4</edad>
+    <Peso>1</Peso>
+    <historia>Es un muñeco de nieve al que ELsa le dio vida XD</historia>
+  </DATA_RECORD>
+  <DATA_RECORD>
+    <id>10</id>
+    <Imagen>https://static.wikia.nocookie.net/disney/images/a/a6/Simba_adulto.png/revision/latest/scale-to-width-down/200?cb=20120207142439&amp;path-prefix=es</Imagen>
+    <Nombre>Simba</Nombre>
+    <edad>8</edad>
+    <Peso>30</Peso>
+    <historia>Es el hijo de Mufasa. Huye cuando el muere pensando que es su culpa. Luego vuelve y destrona a Scar</historia>
+  </DATA_RECORD>
+  <DATA_RECORD>
+    <id>11</id>
+    <Imagen>https://static.wikia.nocookie.net/disney/images/3/32/Timon-icon.png/revision/latest?cb=20170303031332&amp;path-prefix=es</Imagen>
+    <Nombre>Timon</Nombre>
+    <edad>8</edad>
+    <Peso>1</Peso>
+    <historia>Es amigo de Simba, junto a Pumba lo ayudaron a sobrevivir. Hakuna Matata es como hay que vivir.</historia>
+  </DATA_RECORD>
+  <DATA_RECORD>
+    <id>12</id>
+    <Imagen>https://e7.pngegg.com/pngimages/412/972/png-clipart-pumbaa-the-lion-king-simba-rafiki-zazu-others-pumbaa-the-lion-king.png</Imagen>
+    <Nombre>Pumba</Nombre>
+    <edad>8</edad>
+    <Peso>15</Peso>
+    <historia>Amigo de Simba y Timon. Le hacen bullying porque tiene gases</historia>
+  </DATA_RECORD>
+</characters>
